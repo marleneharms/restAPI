@@ -17,3 +17,13 @@ Content-Type: application/json
 ###
 
 DELETE http://localhost:3000/subscribers/654099c70ec3ef1692affc28
+
+###
+
+PATCH http://localhost:3000/subscribers/654099b50ec3ef1692affc26
+Content-Type: application/json
+
+{
+    "name": "Rey",
+    "subscribedToChannel": "Hector" 
+}

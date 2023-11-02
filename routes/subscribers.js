@@ -32,15 +32,23 @@ router.post("/", async (req, res) => {
 });
 
 // Updating one
-router.patch("/:id", async (req, res) => {
+router.patch("/:id", getSubscriber, async (req, res) => {
   if (req.body.name) {
+    res.subscriber.name = req.body.name;
   }
   if (req.body.subscribedToChannel) {
+    res.subscriber.subscribedToChannel = req.body.subscribedToChannel;
   }
+  console.log(res.subscriber._id.valueOf());
   try {
-    updates;
-    const subscriber = await Subscriber.findByIdAndUpdate(req.params.id);
-  } catch (err) {}
+    const subscriber = await Subscriber.findByIdAndUpdate(
+      res.subscriber._id.valueOf(),
+      res.subscriber
+    );
+    res.json(subscriber);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
 }); // only want to update on what subscribers send
 
 // Deleting one
