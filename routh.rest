@@ -1,0 +1,19 @@
+GET http://localhost:3000/subscribers
+
+###
+
+GET http://localhost:3000/subscribers/654096665b0ffdde458a121a
+
+###
+
+POST  http://localhost:3000/subscribers
+Content-Type: application/json
+
+{
+    "name": "Ari",
+    "subscribedToChannel": "Nat" 
+}
+
+###
+
+DELETE http://localhost:3000/subscribers/654099c70ec3ef1692affc28
